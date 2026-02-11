@@ -21,6 +21,10 @@ function timeToMinutes(timeStr) {
 function renderGrid() {
     const timeCol = document.getElementById('timeCol');
     const gridLines = document.getElementById('gridLines');
+    if (!timeCol || !gridLines) return;
+
+    timeCol.innerHTML = '';
+    gridLines.innerHTML = '';
 
     // Render Time Labels
     for (let i = config.startHour; i <= config.endHour; i++) {
@@ -65,6 +69,62 @@ function renderClasses() {
     });
 }
 
+// Mobile Tab Switching Logic
+function initMobileTabs() {
+    const tabContainer = document.getElementById('mobileDayTabs');
+    const activeDayHeader = document.getElementById('activeDayHeader');
+    if (!tabContainer) return;
+
+    const tabs = tabContainer.querySelectorAll('.nav-link');
+    const dayColumns = document.querySelectorAll('.day-column');
+
+    const dayMap = {
+        'Mon': 'Monday', 'Tue': 'Tuesday', 'Wed': 'Wednesday',
+        'Thu': 'Thursday', 'Fri': 'Friday', 'Sat': 'Saturday'
+    };
+
+    function updateDay(selectedDay) {
+        // Update Tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        const activeTab = Array.from(tabs).find(t => t.getAttribute('data-day') === selectedDay);
+        if (activeTab) activeTab.classList.add('active');
+
+        // Update Columns
+        dayColumns.forEach(col => {
+            if (col.getAttribute('data-day') === selectedDay) {
+                col.classList.add('active');
+            } else {
+                col.classList.remove('active');
+            }
+        });
+
+        // Update Header
+        if (activeDayHeader) {
+            activeDayHeader.innerText = dayMap[selectedDay] || selectedDay;
+        }
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            updateDay(tab.getAttribute('data-day'));
+        });
+    });
+
+    // Set initial state
+    const currentActive = tabContainer.querySelector('.nav-link.active');
+    if (currentActive) {
+        updateDay(currentActive.getAttribute('data-day'));
+    }
+}
+
 // Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    renderGrid();
+    renderClasses();
+    initMobileTabs();
+});
+
+// Also run immediately if script is at end of body
 renderGrid();
 renderClasses();
+initMobileTabs();
