@@ -1,0 +1,239 @@
+:root {
+    --primary: #6366f1;
+    --primary-light: rgba(99, 102, 241, 0.15);
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --border: #334155;
+    --grid-line: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    padding: 40px 20px;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* Schedule Grid Container */
+.schedule-card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Wrapper */
+.table-responsive {
+    overflow-x: auto;
+    position: relative;
+}
+
+.timetable {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    min-width: 900px;
+    position: relative;
+}
+
+/* Header Cells */
+.header {
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 2px solid var(--border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.header:first-child {
+    color: var(--text-dim);
+}
+
+/* Time Column Labels */
+.time-labels {
+    display: contents;
+}
+
+.time-label {
+    height: 80px;
+    /* Base height for 1 hour */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 600;
+    border-bottom: 1px solid var(--grid-line);
+    grid-column: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Background Overlay */
+.grid-overlay {
+    position: absolute;
+    top: 60px;
+    /* Header height offset */
+    left: 100px;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.grid-column {
+    border-left: 1px solid var(--grid-line);
+    height: 100%;
+}
+
+/* Content Layer */
+.content-layer {
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 100;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    z-index: 1;
+}
+
+.day-column {
+    position: relative;
+    height: 800px;
+    /* Proportional to configuration */
+}
+
+/* Subject Blocks */
+.class-block {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    background: var(--primary-light);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.class-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    background: rgba(99, 102, 241, 0.25);
+}
+
+.class-name {
+    font-weight: 700;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+.class-detail {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+.class-time {
+    margin-top: auto;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+/* Specific Type Styles */
+.type-lab {
+    border-left-color: #f43f5e;
+    background: rgba(244, 63, 94, 0.1);
+    border-color: rgba(244, 63, 94, 0.2);
+}
+
+.type-lab .class-time {
+    color: #f43f5e;
+}
+
+.type-lec {
+    border-left-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.type-lec .class-time {
+    color: #10b981;
+}
+
+.type-gen {
+    border-left-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.type-gen .class-time {
+    color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

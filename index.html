@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roswell Cruz - Class Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 Class Sched</h1>
+            <p class="subtitle">Class Schedule • Academic Year 2026</p>
+        </header>
+
+        <div class="schedule-card">
+            <div class="table-responsive">
+                <div class="timetable">
+                    <!-- Column Headers -->
+                    <div class="header">Time</div>
+                    <div class="header">Mon</div>
+                    <div class="header">Tue</div>
+                    <div class="header">Wed</div>
+                    <div class="header">Thu</div>
+                    <div class="header">Fri</div>
+                    <div class="header">Sat</div>
+
+                    <!-- Time Grid Visuals -->
+                    <div id="timeCol" class="time-labels"></div>
+
+                    <!-- Daily Columns Content -->
+                    <div class="content-layer" id="gridContent">
+                        <div class="day-column" data-day="Mon"></div>
+                        <div class="day-column" data-day="Tue"></div>
+                        <div class="day-column" data-day="Wed"></div>
+                        <div class="day-column" data-day="Thu"></div>
+                        <div class="day-column" data-day="Fri"></div>
+                        <div class="day-column" data-day="Sat"></div>
+
+                        <!-- Grid Lines (procedural) -->
+                        <div id="gridLines" class="grid-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
