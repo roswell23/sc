@@ -7,6 +7,8 @@
     --text-dim: #94a3b8;
     --border: #334155;
     --grid-line: #1e293b;
+    --accent: #8b5cf6;
+    --accent-light: rgba(139, 92, 246, 0.15);
 }
 
 * {
@@ -31,24 +33,63 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 16px;
 }
 
-.subtitle {
-    color: var(--text-dim);
-    font-weight: 500;
+.brand-gradient {
+    background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
 }
+
+.header-icon {
+    font-size: 2.5rem;
+}
+
+
+.subtitle-badge {
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(4px);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
 
 /* Schedule Grid Container */
 .schedule-card {
@@ -244,9 +285,9 @@ h1 {
     padding: 12px;
     border-radius: 10px;
     font-size: 0.85rem;
-    background: var(--primary-light);
+    background: rgba(30, 41, 59, 1);
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     border-left: 4px solid var(--primary);
     transition: all 0.2s ease;
     cursor: pointer;
@@ -296,9 +337,8 @@ h1 {
 
 /* Specific Type Styles */
 .type-lab {
-    border-left-color: #f43f5e;
-    background: rgba(244, 63, 94, 0.1);
-    border-color: rgba(244, 63, 94, 0.2);
+    border-left-color: #ef4444;
+    background: #27272a;
 }
 
 .type-lab .class-time {
@@ -307,8 +347,7 @@ h1 {
 
 .type-lec {
     border-left-color: #10b981;
-    background: rgba(16, 185, 129, 0.1);
-    border-color: rgba(16, 185, 129, 0.2);
+    background: #27272a;
 }
 
 .type-lec .class-time {
@@ -317,8 +356,7 @@ h1 {
 
 .type-gen {
     border-left-color: #f59e0b;
-    background: rgba(245, 158, 11, 0.1);
-    border-color: rgba(245, 158, 11, 0.2);
+    background: #27272a;
 }
 
 .type-gen .class-time {
@@ -350,7 +388,11 @@ h1 {
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .header-icon {
+        font-size: 1.8rem;
     }
 
     body {
