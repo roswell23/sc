@@ -1,16 +1,20 @@
 const config = {
     startHour: 7,
-    endHour: 18,
+    endHour: 19,
     pixelsPerHour: 80
 };
 
 const scheduleData = [
-    { day: "Mon", start: "10:00", end: "12:00", name: "GNED 09", desc: "Ronnel Jul M. Sebastian", loc: "TMA 101", type: "type-gen" },
-    { day: "Thu", start: "07:00", end: "09:00", name: "ITEC 101", desc: "Richelle F. Rozol", loc: "Comlab 2", type: "type-lab" },
-    { day: "Thu", start: "10:00", end: "12:30", name: "DCIT 26", desc: "Sherom Granada", loc: "Comlab 1", type: "type-lec" },
-    { day: "Thu", start: "13:30", end: "16:00", name: "ITEC 106", desc: "Sherom Granada", loc: "Comlab 1", type: "type-lab" },
-    { day: "Sat", start: "07:00", end: "09:00", name: "ITEC 105", desc: "Edison Feranil", loc: "Comlab 2", type: "type-lec" },
-    { day: "Sat", start: "10:00", end: "12:30", name: "ITEC 100", desc: "Edison Feranil", loc: "Comlab 1", type: "type-lec" }
+    { day: "Mon", start: "10:00", end: "12:00", name: "GNED 09", desc: "Ronnel Jul M. Sebastian", loc: "TMA 101 (f2f)", type: "type-gen" },
+    { day: "Tue", start: "17:00", end: "19:00", name: "ITEC 100", desc: "Edison Feranil", loc: "ONLINE (Lecture)", type: "type-lec" },
+    { day: "Wed", start: "10:30", end: "12:30", name: "ITEC 106", desc: "Sherom Granada", loc: "ONLINE (Lecture)", type: "type-lab" },
+    { day: "Thu", start: "07:00", end: "10:00", name: "ITEC 101", desc: "Richelle F. Rozol", loc: "Comlab 2 (f2f)", type: "type-lab" },
+    { day: "Thu", start: "10:00", end: "13:00", name: "DCIT 26", desc: "Sherom Granada", loc: "Comlab 1 (f2f)", type: "type-lec" },
+    { day: "Thu", start: "13:30", end: "16:30", name: "ITEC 106", desc: "Sherom Granada", loc: "Comlab 1 (f2f)", type: "type-lab" },
+    { day: "Fri", start: "11:30", end: "13:30", name: "DCIT 26", desc: "Sherom Granada", loc: "ONLINE (Lecture)", type: "type-lec" },
+    { day: "Sat", start: "07:00", end: "10:00", name: "ITEC 100", desc: "Edison Feranil", loc: "Comlab 2 (f2f)", type: "type-lec" },
+    { day: "Sat", start: "10:00", end: "13:00", name: "ITEC 105", desc: "Edison Feranil", loc: "Comlab 1 (f2f)", type: "type-lec" },
+    { day: "Sat", start: "17:00", end: "19:00", name: "ITEC 105", desc: "Edison Feranil", loc: "ONLINE (Lecture)", type: "type-lec" }
 ];
 
 function timeToMinutes(timeStr) {
