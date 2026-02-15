@@ -72,8 +72,6 @@ h1 {
     grid-template-columns: 85px repeat(6, 1fr);
     min-width: 900px;
     position: relative;
-    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px);
-    background-size: 100% 80px;
 }
 
 @media (max-width: 767.98px) {
@@ -136,13 +134,16 @@ h1 {
         grid-column: 1;
         grid-row: 2 / span 100;
         display: block;
-        margin-top: -10px;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px);
+        background-size: 100% 80px;
     }
 
     .content-layer {
         grid-column: 2 / span 6;
         grid-row: 2 / span 100;
         display: grid;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px);
+        background-size: 100% 80px;
     }
 }
 
@@ -165,13 +166,16 @@ h1 {
         grid-column: 1;
         grid-row: 2 / span 100;
         display: block;
-        margin-top: -10px;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px);
+        background-size: 100% 80px;
     }
 
     .content-layer {
         grid-column: 2;
         grid-row: 2 / span 100;
         display: grid;
+        background-image: linear-gradient(var(--grid-line) 1px, transparent 1px);
+        background-size: 100% 80px;
     }
 }
 
@@ -191,7 +195,7 @@ h1 {
     align-items: flex-start;
     justify-content: flex-end;
     padding-right: 15px;
-    padding-top: 2px;
+    padding-top: 0;
     font-size: 0.7rem;
     color: var(--text-dim);
     font-weight: 700;
@@ -229,7 +233,7 @@ h1 {
 
 .day-column {
     position: relative;
-    height: 800px;
+    height: 960px;
 }
 
 /* Subject Blocks */
